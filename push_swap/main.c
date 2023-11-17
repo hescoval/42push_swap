@@ -9,14 +9,20 @@ int main(int ac, char **av)
 	int *arr = malloc(sizeof(int) * values);
 	if(!arr)
 		return(p_Error());
-	fill_array(arr, ac, av);
+	arr = fill_array(arr, ac, av);
+	if(!arr)
+		return(p_Error());
 
-/*
-	if(check_duplicates(arr))
+	if(check_duplicates(arr, values))
 	{
 		free(arr);
 		return(p_Error());
 	}
-*/
+
+	for(int i = 0; i < values; i++)
+	{
+		printf("[%i]\n", arr[i]);
+	}
+	free(arr);
 	return 1;
 }

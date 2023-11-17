@@ -16,5 +16,6 @@ typedef struct node
 int input_checker(int ac, char **strs);
 int p_Error();
 int *fill_array(int *arr, int ac, char **strs);
+int check_duplicates(int *arr, int size);
 
 #endif

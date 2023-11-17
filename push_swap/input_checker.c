@@ -11,6 +11,8 @@ int check_string(char *str)
 {
 	int i = 0;
 	
+	if(!str[i])
+		return 0;
 	while(str[i])
 	{	
 		if(str[i] == '-' && !ft_isdigit(str[i + 1]))

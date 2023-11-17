@@ -20,6 +20,8 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+long long	ft_atol(const char *nptr);
 int		ft_atoi(const char *nptr);
 int		ft_isalnum(int c);
 int		ft_tolower(int c);
