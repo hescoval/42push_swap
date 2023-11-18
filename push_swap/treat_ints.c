@@ -17,7 +17,9 @@ int check_duplicates(int *arr, int size)
 		{
 			if(arr[i] == arr[j])
 				return 1;
+			j++;
 		}
+		i++;
 	}
 	return 0;
 }
