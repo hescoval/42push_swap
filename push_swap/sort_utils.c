@@ -26,10 +26,9 @@ void print_stacks(node* s_a, node* s_b)
 void start_sort(node* s_a, node* s_b)
 {
 	print_stacks(s_a, s_b);
-	printf("\n\n\n\n");
-	push(&s_a, &s_b);
-	push(&s_a, &s_b);
+	rotate(&s_a);
 	print_stacks(s_a, s_b);
+	rotate(&s_a);
 	free_stack(s_a);
 	free_stack(s_b);
 }

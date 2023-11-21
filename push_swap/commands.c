@@ -15,7 +15,8 @@
 
 void push(node **stack_pop, node **stack_push)
 {
-	shift_stacks(*stack_pop, *stack_push);
+	shift_stack(*stack_pop, 0);
+	shift_stack(*stack_push, 1);
 
 	node *helper = *stack_pop;
 
@@ -24,4 +25,24 @@ void push(node **stack_pop, node **stack_push)
 	helper->next = *stack_push;
 	*stack_push = helper;
 	(*stack_push)->index = 0;
+}
+
+
+void	rotate(node **stack)
+{
+	shift_stack(*stack, 1);
+	int size = stack_size(*stack);
+	int i = 0;
+	node *helper = *stack;
+	node *last = fetch_last(*stack);
+	while(i < size - 1)
+	{
+		if(i == size - 2)
+			helper->next = NULL;
+		helper = helper->next;
+		i++;
+	}
+	last->next = *stack;
+	*stack = last;
+	(*stack)->index = 0;
 }

@@ -21,6 +21,7 @@ node	*make_node(int index, int value)
 		return (NULL);
 	new->index = index;
 	new->value = value;
+	new->closest = value;
 	new->next = NULL;
 	return (new);
 }
@@ -37,4 +38,14 @@ node	*make_list(int *values, int size)
 		i++;
 	}
 	return(head);
+}
+int stack_size(node *stack)
+{
+	int i = 0;
+	while(stack != NULL)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return i;
 }
