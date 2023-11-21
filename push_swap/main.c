@@ -22,7 +22,6 @@ int main(int ac, char **av)
 	node* stack_b = NULL;
 
 	start_sort(stack_a, stack_b);
-	free_stack(stack_a); 
 	free(arr);
 	return 1;
 }

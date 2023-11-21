@@ -22,5 +22,9 @@ node	*make_list(int *values, int size);
 void	free_stack(node *stack);
 void start_sort(node* s_a, node* s_b);
 void print_stacks(node* s_a, node* s_b);
+void shift_stacks(node *popped, node *pushed);
+
+//Commands
+void push(node **stack_pop, node **stack_push);
 
 #endif
