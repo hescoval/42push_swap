@@ -23,6 +23,7 @@ node	*make_node(int index, int value)
 	new->index = index;
 	new->value = value;
 	new->closest = value;
+	new->push_cost = index;
 	new->next = NULL;
 	return (new);
 }
