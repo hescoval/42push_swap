@@ -8,10 +8,11 @@
 
 typedef struct node
 {
-	int index;
-	int value;
-	int closest;
-	struct node *next;
+	int		index;
+	int		value;
+	int		closest;
+	int		push_cost;
+	struct	node *next;
 }				node;
 
 int		input_checker(int ac, char **strs);
@@ -22,8 +23,12 @@ node	*make_node(int index, int value);
 node	*make_list(int *values, int size);
 void	free_stack(node *stack);
 void	start_sort(node *s_a, node *s_b);
+
+//For debugging
 void	print_stacks(node *s_a, node *s_b);
 
+//Sorting Algorithm Helpers
+void	find_closest(node *head_a, node *head_b);
 
 //Command helpers
 void	shift_stack(node *popped, int up);

@@ -62,22 +62,23 @@ void	print_stacks(node* s_a, node* s_b)
 {
 	node* helper_b;
 	node* helper_a;
-
+	int biggest = ft_max(stack_size(s_a), stack_size(s_b));
 	helper_a = s_a;
 	helper_b = s_b;
-	while (helper_a != NULL || helper_b != NULL)
+	while (biggest)
 	{
 		if (helper_a != NULL)
 		{
-			printf(" Index is %i, value is %i\t", helper_a->index, helper_a->value);
+			printf("Index: %i, Value is %i, Closest in B is: %i\t", helper_a->index, helper_a->value, helper_a->closest);
 			helper_a = helper_a->next;
 		}
-		printf("\t|\t");
+ 		printf("\t|\t");
 		if (helper_b != NULL)
 		{
-			printf(" Index is %i, value is %i", helper_b->index, helper_b->value);
+			printf(" Index: %i, value: %i", helper_b->index, helper_b->value);
 			helper_b = helper_b->next;
-		}
+		} 
+		biggest--;
 		printf("\n");
 	}
 }
