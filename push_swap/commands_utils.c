@@ -1,10 +1,10 @@
 #include "push.h"
 
-void shift_stack(node *popped, int up)
+void	shift_stack(node *popped, int up)
 {
-	while(popped != NULL)
+	while (popped != NULL)
 	{
-		if(up)
+		if (up)
 			popped->index += 1;
 		else
 			popped->index -= 1;
@@ -12,21 +12,20 @@ void shift_stack(node *popped, int up)
 	}
 }
 
-void pick_rotate(node **stack, int reverse)
+void	pick_rotate(node **stack, int reverse)
 {
-	if(reverse)
+	if (reverse)
 		rev_rotate(stack);
  	else
 		rotate(stack);
 }
 
-node *fetch_last(node *stack)
+node	*fetch_last(node *stack)
 {
 	node *last;
 
-	while(stack->next != NULL)
+	while (stack->next != NULL)
 		stack = stack->next;
-
 	last = stack;
-	return(last);
+	return (last);
 }

@@ -15,7 +15,10 @@ int	main(int ac, char **av)
 		return (p_Error());
 	arr = fill_array(arr, ac, av);	//Fill'er up
 	if (!arr)	//Overflow check
+	{
+		free(arr);
 		return (p_Error());
+	}
  	if (check_duplicates(arr, values))	//Dupe check
 	{
 		free(arr);
