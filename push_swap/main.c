@@ -1,9 +1,12 @@
 #include "push.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	int *arr;
-	int values;
+	int 	*arr;
+	int 	values;
+	node	*stack_a;
+	node	*stack_b;
+
 	values = input_checker(ac, av);
 	if (values == 0)
 		return (p_Error());
@@ -18,10 +21,8 @@ int main(int ac, char **av)
 		free(arr);
 		return (p_Error());
 	} 
-	node* stack_a = make_list(arr, values);
-	node* stack_b = NULL;
-
-	start_sort(stack_a, stack_b);
+	stack_a = make_list(arr, values);
+	stack_b = NULL;
 	free(arr);
-	return 1;
+	start_sort(stack_a, stack_b);
 }
