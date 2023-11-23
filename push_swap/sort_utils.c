@@ -16,7 +16,10 @@ void	find_closest(node *head_a, node *head_b)
 			if (h_a->closest == h_a->value)
 				h_a->closest = h_b->value;
 			if (ft_abs(h_a->value - h_b->value) < ft_abs(closest - h_a->value))
+			{
+				
 				h_a->closest = h_b->value;
+			}
 			h_b = h_b->next;
 		}
 		h_a = h_a->next;
