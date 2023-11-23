@@ -28,7 +28,6 @@ node	*make_list(int *values, int size);
 void	free_stack(node *stack);
 int		find_min(node *stack);
 int		find_max(node *stack);
-int		find_index(node *stack, int value);
 
 //For debugging and error stuff
 void	print_stacks(node *s_a, node *s_b);
@@ -38,6 +37,7 @@ int		p_Error();
 void	find_closest(node *head_a, node *head_b);
 void	check_cost(node *head_a, node *head_b);
 int		is_sorted(node *head);
+int		find_index(node *head, int value);
 
 //Command helpers
 void	shift_stack(node *popped, int up);
