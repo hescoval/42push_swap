@@ -22,7 +22,7 @@ node	*make_node(int index, int value)
 		return (NULL);
 	new->index = index;
 	new->value = value;
-	new->closest = value;
+	new->closest = INT_MAX;
 	new->push_cost = index;
 	new->next = NULL;
 	return (new);
@@ -70,13 +70,13 @@ void	print_stacks(node* s_a, node* s_b)
 	{
 		if (helper_a != NULL)
 		{
-			printf("Index: %i, Value is %i, Closest in B is: %i\t", helper_a->index, helper_a->value, helper_a->closest);
+			printf("Index: %i, Value is %i, push cost is: %i\t", helper_a->index, helper_a->value, helper_a->push_cost);
 			helper_a = helper_a->next;
 		}
  		printf("\t|\t");
 		if (helper_b != NULL)
 		{
-			printf(" Index: %i, value: %i", helper_b->index, helper_b->value);
+			printf(" Index: %i, value: %i, push cost is: %i", helper_b->index, helper_b->value, helper_b->push_cost);
 			helper_b = helper_b->next;
 		} 
 		biggest--;

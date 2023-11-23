@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "libft/libft.h"
+#include <limits.h>
 
 typedef struct node
 {
@@ -35,6 +36,8 @@ int		p_Error();
 
 //Sorting Algorithm Helpers
 void	find_closest(node *head_a, node *head_b);
+void	check_cost(node *head_a, node *head_b);
+int		is_sorted(node *head);
 
 //Command helpers
 void	shift_stack(node *popped, int up);
