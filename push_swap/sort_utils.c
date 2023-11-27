@@ -9,6 +9,7 @@ void	find_closest(node *head_a, node *head_b)
 	h_a = head_a;
 	while (h_a != NULL)
 	{
+		h_a->closest = INT_MAX;
 		h_b = head_b;
 		while (h_b != NULL)
 		{
@@ -45,7 +46,7 @@ void	check_cost(node *head_a, node *head_b)
 		if (head_b->index <= (size / 2))
 			head_b->push_cost = head_b->index;
 		else
-			head_b->push_cost = size - head_a->index;
+			head_b->push_cost = size - head_b->index;
 		head_b = head_b->next;
 	}
 }
@@ -59,4 +60,21 @@ int	is_sorted(node *head)
 		head = head->next;
 	}
 	return 1;
+}
+
+int	same_direction(node *s_a, node *s_b, node *curr_a, node *target)
+{
+	int half_a = stack_size(s_a) / 2;
+	int half_b = stack_size(s_b) / 2;
+
+
+	int curr_i = curr_a->index;
+	int target_i = target->index;
+	if(curr_i == 0 || target_i == 0)
+		return 0;
+	if(curr_i > half_a && target_i > half_b)
+		return 2;
+	if(curr_i <= half_a && target_i <= half_b)
+		return 1;
+	return 0;
 }

@@ -63,23 +63,19 @@ void	print_stacks(node* s_a, node* s_b)
 {
 	node* helper_b;
 	node* helper_a;
-	int biggest = ft_max(stack_size(s_a), stack_size(s_b));
+	
 	helper_a = s_a;
 	helper_b = s_b;
-	while (biggest)
+	while (helper_a != NULL)
 	{
-		if (helper_a != NULL)
-		{
-			printf("Index: %i, Value is %i, push cost is: %i\t", helper_a->index, helper_a->value, helper_a->push_cost);
-			helper_a = helper_a->next;
-		}
- 		printf("\t|\t");
-		if (helper_b != NULL)
-		{
-			printf(" Index: %i, value: %i, push cost is: %i", helper_b->index, helper_b->value, helper_b->push_cost);
-			helper_b = helper_b->next;
-		} 
-		biggest--;
-		printf("\n");
+		printf("{ %i } -->", helper_a->value);
+		helper_a = helper_a->next;
 	}
+ 	printf("\n\n");
+	while (helper_b != NULL)
+	{
+		printf("{ %i } -->", helper_b->value);
+		helper_b = helper_b->next;
+	} 
+	printf("\n");
 }

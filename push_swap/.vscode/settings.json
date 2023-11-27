@@ -1,0 +1,15 @@
+{
+	"files.associations": {
+		"push.h": "c",
+		"stdio.h": "c",
+		"libc-header-start.h": "c",
+		"stddef.h": "c",
+		"iostream": "cpp",
+		"istream": "cpp",
+		"ostream": "cpp",
+		"ios": "cpp",
+		"iosfwd": "cpp",
+		"exception": "cpp",
+		"streambuf": "cpp"
+	}
+}

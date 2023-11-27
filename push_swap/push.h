@@ -37,7 +37,10 @@ int		p_Error();
 void	find_closest(node *head_a, node *head_b);
 void	check_cost(node *head_a, node *head_b);
 int		is_sorted(node *head);
-int		find_index(node *head, int value);
+node	*find_node(node *stack, int value);
+void	sort_to_b(node **s_a, node **s_b);
+void	initial_pushes(node **s_a, node **s_b);
+int		same_direction(node *s_a, node *s_b, node *curr_a, node *target);
 
 //Command helpers
 void	shift_stack(node *popped, int up);

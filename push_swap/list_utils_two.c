@@ -1,14 +1,14 @@
 #include "push.h"
 
-int find_index(node *stack, int value)
+node *find_node(node *stack, int value)
 {
 	while(stack != NULL)
 	{
 		if(stack->value == value)
-			return (stack->index);
+			return (stack);
 		stack = stack->next;
 	}
-	return (-1);
+	return (NULL);
 }
 
 int find_max(node *stack)

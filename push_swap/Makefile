@@ -1,5 +1,5 @@
 NAME = push_swap
-CC = cc -Wall -Wextra -Werror
+CC = cc -g -Wall -Wextra -Werror
 RM = rm -rf
 LIBFT = libft/libft.a
 LIBFT_DIR = libft/
