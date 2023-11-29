@@ -43,9 +43,9 @@ void	initial_pushes(node **s_a, node **s_b);
 int		same_direction(node *s_a, node *s_b, node *curr_a, node *target);
 void	high_to_top(node **head, char prnt);
 int	total_cost(node **s_a, node **s_b, node *curr, node *target);
-void	do_command(node **s_a, node **s_b, node *to_push);
-void helper_rotate(node **s_a, node **s_b, int times, int direction, int *total);
-void both_ways(node **s_a, node **s_b, node *push, node *target);
+void	do_command(node **s_a, node **s_b, node *to_push, int yep, int total);
+void helper_rotate(node **s_a, node **s_b, node *to_push, int direction, int *total);
+void both_ways(node **s_a, node **s_b, node *push, node *target, int yep);
 void find_closest_inverse(node *head_a, node *head_b);
 void	min_to_top(node **head);
 

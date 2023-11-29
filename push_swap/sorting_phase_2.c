@@ -25,7 +25,7 @@ void sort_to_b(node **s_a, node **s_b)
 			}
 			helper = helper->next;
 		}
-		do_command(s_a, s_b, to_push);
+		do_command(s_a, s_b, to_push, 0, min_cost);
 		push(s_a, s_b, 'b');
 /* 		print_stacks(*s_a, *s_b); */
 	}

@@ -25,7 +25,7 @@ void	final_sort(node **s_a, node **s_b)
 			}
 			helper = helper->next;
 		}
-		do_command(s_b, s_a, to_push);
+		do_command(s_b, s_a, to_push, 1, min_cost);
 		push(s_b, s_a, 'a');
 /* 		print_stacks(*s_a, *s_b); */
 	}
@@ -41,24 +41,22 @@ int	total_cost(node **s_a, node **s_b, node *curr, node *target)
 	return (total);
 }
 
-void	do_command(node **s_a, node **s_b, node *to_push)
+void	do_command(node **s_a, node **s_b, node *to_push, int yep, int total)
 {
-	int total;
 	int direction;
 
 	node *target = find_node(*s_b, to_push->closest);
-	total = ft_max(to_push->push_cost, target->push_cost);
-	int to_do = ft_min(to_push->push_cost, target->push_cost);
 	direction = same_direction(*s_a, *s_b, to_push, target);
 	if(direction)
-		helper_rotate(s_a, s_b, to_do, direction, &total);
+		helper_rotate(s_a, s_b, to_push, direction, &total);
 	if(total)
-		both_ways(s_a, s_b, to_push, target);
+		both_ways(s_a, s_b, to_push, target, yep);
 }
 
-void helper_rotate(node **s_a, node **s_b, int times, int direction, int *total)
+void helper_rotate(node **s_a, node **s_b, node *to_push, int direction, int *total)
 {
-	while(times && direction)
+	node *target = find_node(*s_b, to_push->closest);
+	while(target->index != 0 && to_push->index != 0)
 	{
 		if(direction == 1)
 		{
@@ -73,16 +71,17 @@ void helper_rotate(node **s_a, node **s_b, int times, int direction, int *total)
 			ft_printf("rrr\n");
 		}
 /* 		print_stacks(*s_a, *s_b); */
-		times--;
 		*total -= 1;
 	}
 }
 
-void both_ways(node **s_a, node **s_b, node *push, node *target)
+void both_ways(node **s_a, node **s_b, node *push, node *target, int yep)
 {
 	int size_a = stack_size(*s_a) / 2;
 	int size_b = stack_size(*s_b) / 2;
-
+	char print = 'b';
+	if(yep)
+		print = 'a';
 	while(push->index != 0)
 	{
 		if(push->index > size_a)
@@ -94,9 +93,9 @@ void both_ways(node **s_a, node **s_b, node *push, node *target)
 	while(target->index != 0)
 	{
 		if(target->index > size_b)
-			rev_rotate(s_b, 'b');
+			rev_rotate(s_b, print);
 		else
-			rotate(s_b, 'b');
+			rotate(s_b, print);
 /* 		print_stacks(*s_a, *s_b); */
 	}
 }

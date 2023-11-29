@@ -6,7 +6,7 @@ void	high_to_top(node **head, char prnt)
 	node *helper = find_node(*head, find_max(*head));
 	
 	if(helper->index > half_size)
-		while(helper->index > half_size)
+		while(helper->index != 0)
 			rev_rotate(head, prnt);
 	else
 		while(helper->index != 0)

@@ -57,9 +57,9 @@ void	start_sort(node *s_a, node *s_b)
 /* 	print_stacks(s_a, s_b); */
 	if(sent)
 	{
-		final_sort(&s_a, &s_b);
+ 		final_sort(&s_a, &s_b);
 		min_to_top(&s_a);
-/* 		print_stacks(s_a, s_b); */
+ 		print_stacks(s_a, s_b);
 		free_stack(s_b);
 	}
 	free_stack(s_a);
