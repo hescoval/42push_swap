@@ -41,11 +41,19 @@ node	*find_node(node *stack, int value);
 void	sort_to_b(node **s_a, node **s_b);
 void	initial_pushes(node **s_a, node **s_b);
 int		same_direction(node *s_a, node *s_b, node *curr_a, node *target);
+void	high_to_top(node **head, char prnt);
+int	total_cost(node **s_a, node **s_b, node *curr, node *target);
+void	do_command(node **s_a, node **s_b, node *to_push);
+void helper_rotate(node **s_a, node **s_b, int times, int direction, int *total);
+void both_ways(node **s_a, node **s_b, node *push, node *target);
+void find_closest_inverse(node *head_a, node *head_b);
+void	min_to_top(node **head);
 
 //Command helpers
 void	shift_stack(node *popped, int up);
 int		stack_size(node *stack);
 node	*fetch_last(node *stack);
+void	final_sort(node **s_a, node **s_b);
 
 //Commands
 void	push(node **stack_pop, node **stack_push, char prnt);

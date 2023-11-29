@@ -68,13 +68,13 @@ void	print_stacks(node* s_a, node* s_b)
 	helper_b = s_b;
 	while (helper_a != NULL)
 	{
-		printf("{ %i } -->", helper_a->value);
+		printf("{ %i} -->", helper_a->value);
 		helper_a = helper_a->next;
 	}
  	printf("\n\n");
 	while (helper_b != NULL)
 	{
-		printf("{ %i } -->", helper_b->value);
+		printf("{ %i} -->", helper_b->value);
 		helper_b = helper_b->next;
 	} 
 	printf("\n");

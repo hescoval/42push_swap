@@ -1,5 +1,18 @@
 #include "push.h"
 
+void	high_to_top(node **head, char prnt)
+{
+	int half_size = stack_size(*head) / 2;
+	node *helper = find_node(*head, find_max(*head));
+	
+	if(helper->index > half_size)
+		while(helper->index > half_size)
+			rev_rotate(head, prnt);
+	else
+		while(helper->index != 0)
+			rotate(head, prnt);
+}
+
 void	find_closest(node *head_a, node *head_b)
 {
 	node	*h_a;
