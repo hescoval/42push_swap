@@ -67,7 +67,6 @@ int	same_direction(node *s_a, node *s_b, node *curr_a, node *target)
 	int half_a = stack_size(s_a) / 2;
 	int half_b = stack_size(s_b) / 2;
 
-
 	int curr_i = curr_a->index;
 	int target_i = target->index;
 	if(curr_i == 0 || target_i == 0)

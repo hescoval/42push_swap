@@ -48,10 +48,10 @@ int		stack_size(node *stack);
 node	*fetch_last(node *stack);
 
 //Commands
-void	push(node **stack_pop, node **stack_push);
-void	pick_rotate(node **stack, int reverse);
-void	rev_rotate(node **stack);
-void	rotate(node **stack);
-void	swap(node **stack);
+void	push(node **stack_pop, node **stack_push, char prnt);
+void	pick_rotate(node **stack, int reverse, char prnt);
+void	rev_rotate(node **stack, char prnt);
+void	rotate(node **stack, char prnt);
+void	swap(node **stack, char prnt);
 
 #endif

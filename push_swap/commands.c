@@ -1,6 +1,6 @@
 #include "push.h"
 
-void	push(node **stack_pop, node **stack_push)
+void	push(node **stack_pop, node **stack_push, char prnt)
 {
 	node	*helper;
 
@@ -13,9 +13,11 @@ void	push(node **stack_pop, node **stack_push)
 	helper->next = *stack_push;
 	*stack_push = helper;
 	(*stack_push)->index = 0;
+	if(prnt != '0')
+		ft_printf("p%c\n", prnt);
 }
 
-void	rev_rotate(node **stack)
+void	rev_rotate(node **stack, char prnt)
 {
 	node *helper;
 	node *last;
@@ -35,9 +37,11 @@ void	rev_rotate(node **stack)
 	last->next = *stack;
 	*stack = last;
 	(*stack)->index = 0;
+	if(prnt != '0')
+		ft_printf("rr%c\n", prnt);
 }
 
-void	rotate(node **stack)
+void	rotate(node **stack, char prnt)
 {
 	node	*second;
 	node	*helper;
@@ -54,9 +58,11 @@ void	rotate(node **stack)
 	last->next = helper;
 	helper->index = size - 1;
 	helper->next = NULL;
+	if(prnt != '0')
+		ft_printf("r%c\n", prnt);
 }
 
-void	swap(node **stack)
+void	swap(node **stack, char prnt)
 {
 	node* second;
 	
@@ -68,4 +74,6 @@ void	swap(node **stack)
 	(*stack)->next = second->next;
 	second->next = (*stack);
 	(*stack) = second;
+	if(prnt != '0')
+		ft_printf("s%c\n", prnt);
 }

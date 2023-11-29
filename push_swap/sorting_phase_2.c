@@ -8,29 +8,17 @@ void both_ways(node **s_a, node **s_b, node *push, node *target)
 	while(push->index != 0)
 	{
 		if(push->index > size_a)
-		{
-			rev_rotate(s_a);
-			printf("rra\n");
-		}
+			rev_rotate(s_a, 'a');
 		else
-		{
-			rotate(s_a);
-			printf("ra\n");
-		}
+			rotate(s_a, 'a');
 		print_stacks(*s_a, *s_b);
 	}
 	while(target->index != 0)
 	{
 		if(target->index > size_b)
-		{
-			rev_rotate(s_b);
-			printf("rrb\n");
-		}
+			rev_rotate(s_b, 'b');
 		else
-		{
-			rotate(s_b);
-			printf("rb\n");
-		}
+			rotate(s_b, 'b');
 		print_stacks(*s_a, *s_b);
 	}
 }
@@ -41,14 +29,14 @@ void helper_rotate(node **s_a, node **s_b, int times, int direction, int *total)
 	{
 		if(direction == 1)
 		{
-			rotate(s_a);
-			rotate(s_b);
+			rotate(s_a, '0');
+			rotate(s_b, '0');
 			ft_printf("rr\n");
 		}
 		else
 		{
-			rev_rotate(s_a);
-			rev_rotate(s_b);
+			rev_rotate(s_a, '0');
+			rev_rotate(s_b, '0');
 			ft_printf("rrr\n");
 		}
 		print_stacks(*s_a, *s_b);
@@ -108,8 +96,7 @@ void sort_to_b(node **s_a, node **s_b)
 			helper = helper->next;
 		}
 		do_command(s_a, s_b, to_push);
-		push(s_a, s_b);
-		ft_printf("pb\n");
+		push(s_a, s_b, 'b');
 		print_stacks(*s_a, *s_b);
 	}
 }

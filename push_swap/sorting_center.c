@@ -1,21 +1,37 @@
 #include "push.h"
 
+void	sort_a(node **s_a)
+{
+	if (find_min(*s_a) == (*s_a)->value)
+	{
+		rev_rotate(s_a, 'a');
+		swap(s_a, 'a');
+	}
+	else if (find_max(*s_a) == (*s_a)->value)
+	{
+		rotate(s_a, 'a');
+		if (!is_sorted(*s_a))
+			swap(s_a, 'a');
+	}
+	else
+	{
+		if (find_node(*s_a, find_max(*s_a))->index == 1)
+			rev_rotate(s_a, 'a');
+		else
+			swap(s_a, 'a');
+	}
+}
+
 void	initial_pushes(node **s_a, node **s_b)
 {
 	int pushes = 0;
 	while(stack_size(*s_a) > 3 && pushes < 2)
 	{
 		print_stacks(*s_a, *s_b);
-		push(s_a, s_b);
-		printf("pb\n");
+		push(s_a, s_b, 'b');
 		pushes++;
 	}
 	print_stacks(*s_a, *s_b);
-/* 	if(is_sorted(*s_b) && stack_size(*s_b) == 2)
-	{
-		swap(s_b);
-		ft_printf("sb\n");
-	} */
 }
 
 void	start_sort(node *s_a, node *s_b)
@@ -32,10 +48,11 @@ void	start_sort(node *s_a, node *s_b)
 		sort_to_b(&s_a, &s_b);
 	}
 
-/* 	sort_a(&s_a); */
+ 	sort_a(&s_a);
+	print_stacks(s_a, s_b);
 	if(sent)
 	{
-/* 		final_sort(&s_a, &s_b); */
+		final_sort(&s_a, &s_b);
 		free_stack(s_b);
 	}
 

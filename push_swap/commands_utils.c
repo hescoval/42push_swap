@@ -12,12 +12,12 @@ void	shift_stack(node *popped, int up)
 	}
 }
 
-void	pick_rotate(node **stack, int reverse)
+void	pick_rotate(node **stack, int reverse, char prnt)
 {
 	if (reverse)
-		rev_rotate(stack);
+		rev_rotate(stack, prnt);
  	else
-		rotate(stack);
+		rotate(stack, prnt);
 }
 
 node	*fetch_last(node *stack)
