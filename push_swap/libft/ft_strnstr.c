@@ -28,18 +28,18 @@ static int	compare(char *find, char *search, size_t index, size_t len)
 	return (1);
 }
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *l, size_t len)
 {
 	size_t	i;
 	char	*helper;
 
 	helper = (char *) big;
 	i = 0;
-	if (little[0] == '\0')
+	if (l[0] == '\0')
 		return (helper);
 	while (big[i] && i < len)
 	{
-		if (big[i] == little[0] && compare((char *)little, (char *)big, i, len))
+		if (big[i] == l[0] && compare((char *)l, (char *)big, i, len))
 		{
 			return (helper);
 		}
@@ -48,4 +48,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-

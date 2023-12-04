@@ -1,34 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   array_to_list.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hescoval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/04 14:12:17 by hescoval          #+#    #+#             */
+/*   Updated: 2023/12/04 14:12:17 by hescoval         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push.h"
 
 int	number(char c)
 {
-	if(ft_isdigit(c) || c == '-')
-		return 1;
-	return 0;
+	if (ft_isdigit(c) || c == '-')
+		return (1);
+	return (0);
 }
 
 int	check_duplicates(int *arr, int size)
 {
-	int i = 0;
-	while(i < size - 1)
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size - 1)
 	{
-		int j = i + 1;
-		while(j < size)
+		j = i + 1;
+		while (j < size)
 		{
-			if(arr[i] == arr[j])
-				return 1;
+			if (arr[i] == arr[j])
+				return (1);
 			j++;
 		}
 		i++;
 	}
-	return 0;
+	return (0);
 }
 
 int	*fill_array(int *arr, int ac, char **strs)
 {
-	int i;
-	int j;
-	int values;
+	int	i;
+	int	j;
+	int	values;
 
 	i = 1;
 	values = 0;

@@ -1,65 +1,79 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hescoval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/04 14:21:08 by hescoval          #+#    #+#             */
+/*   Updated: 2023/12/04 14:21:09 by hescoval         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_H
 # define PUSH_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "libft/libft.h"
-#include <limits.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include "libft/libft.h"
+# include <limits.h>
 
-typedef struct node
+typedef struct t_n
 {
-	int		index;
-	int		value;
-	int		closest;
-	int		push_cost;
-	struct	node *next;
-}				node;
+	int			index;
+	int			value;
+	int			closest;
+	int			push_cost;
+	struct t_n	*next;
+}				t_n;
 
 //Initial int array utils
 int		input_checker(int ac, char **strs);
 int		*fill_array(int *arr, int ac, char **strs);
 int		check_duplicates(int *arr, int size);
-void	start_sort(node *s_a, node *s_b);
+void	start_sort(t_n *s_a, t_n *s_b);
 
 //List utils
-node	*make_node(int index, int value);
-node	*make_list(int *values, int size);
-void	free_stack(node *stack);
-int		find_min(node *stack);
-int		find_max(node *stack);
+t_n		*make_node(int index, int value);
+t_n		*make_list(int *values, int size);
+void	free_stack(t_n *stack);
+int		find_min(t_n *stack);
+int		find_max(t_n *stack);
 
 //For debugging and error stuff
-void	print_stacks(node *s_a, node *s_b);
-int		p_Error();
+void	print_stacks(t_n *s_a, t_n *s_b);
+int		p_error(int values);
 
 //Sorting Algorithm Helpers
-void	find_closest(node *head_a, node *head_b);
-void	check_cost(node *head_a, node *head_b);
-int		is_sorted(node *head);
-node	*find_node(node *stack, int value);
-void	sort_to_b(node **s_a, node **s_b);
-void	initial_pushes(node **s_a, node **s_b);
-int		same_direction(node *s_a, node *s_b, node *curr_a, node *target);
-void	high_to_top(node **head, char prnt);
-int	total_cost(node **s_a, node **s_b, node *curr, node *target);
-void	do_command(node **s_a, node **s_b, node *to_push, int yep, int total);
-void helper_rotate(node **s_a, node **s_b, node *to_push, int direction, int *total);
-void both_ways(node **s_a, node **s_b, node *push, node *target, int yep);
-void find_closest_inverse(node *head_a, node *head_b);
-void	min_to_top(node **head);
+void	find_closest(t_n *head_a, t_n *head_b);
+void	check_cost(t_n *head_a, t_n *head_b);
+int		is_sorted(t_n *head);
+t_n		*find_node(t_n *stack, int value);
+void	sort_to_b(t_n **s_a, t_n **s_b);
+void	initial_pushes(t_n **s_a, t_n **s_b);
+int		same_direction(t_n *s_a, t_n *s_b, t_n *curr_a, t_n *target);
+void	high_to_top(t_n **head, char prnt);
+int		total_cost(t_n **s_a, t_n **s_b, t_n *curr, t_n *target);
+void	do_command(t_n **s_a, t_n **s_b, t_n *to_push, int total);
+void	do_command_second(t_n **s_a, t_n **s_b, t_n *to_push, int total);
+void	both_ways(t_n **s_a, t_n **s_b, t_n *push, int yep);
+void	find_closest_inverse(t_n *head_a, t_n *head_b);
+void	min_to_top(t_n **head);
+void	r_both(t_n **s_a, t_n **s_b, t_n *to_push, int *total);
+void	rr_both(t_n **s_a, t_n **s_b, t_n *to_push, int *total);
 
 //Command helpers
-void	shift_stack(node *popped, int up);
-int		stack_size(node *stack);
-node	*fetch_last(node *stack);
-void	final_sort(node **s_a, node **s_b);
+void	shift_stack(t_n *popped, int up);
+int		stack_size(t_n *stack);
+t_n		*fetch_last(t_n *stack);
+void	final_sort(t_n **s_a, t_n **s_b);
 
 //Commands
-void	push(node **stack_pop, node **stack_push, char prnt);
-void	pick_rotate(node **stack, int reverse, char prnt);
-void	rev_rotate(node **stack, char prnt);
-void	rotate(node **stack, char prnt);
-void	swap(node **stack, char prnt);
+void	push(t_n **stack_pop, t_n **stack_push, char prnt);
+void	pick_rotate(t_n **stack, int reverse, char prnt);
+void	rev_rotate(t_n **stack, char prnt);
+void	rotate(t_n **stack, char prnt);
+void	swap(t_n **stack, char prnt);
 
 #endif
